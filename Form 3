@@ -1,0 +1,872 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Smart_FoodDelivery_App
+{
+    public partial class Form3 : Form
+    {
+        float price, totalprice;
+        int qty1 = 0, qty2 = 0, qty3 = 0, qty4 = 0, qty5 = 0, qty6 = 0;
+        int qtya1 = 0, qtya2 = 0, qtya3 = 0, qtya4 = 0, qtya5 = 0;
+        int qtyb1 = 0, qtyb2 = 0, qtyb3 = 0, qtyb4 = 0, qtyb5 = 0;
+        int qtyc1 = 0, qtyc2 = 0, qtyc3 = 0, qtyc4 = 0, qtyc5 = 0;
+        int qtyd1 = 0, qtyd2 = 0, qtyd3 = 0, qtyd4 = 0, qtyd5 = 0;
+        int qtye1 = 0, qtye2 = 0, qtye3 = 0, qtye4 = 0, qtye5 = 0;
+        public Form3()
+        {
+            InitializeComponent();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            restaurantlabel.Text = Form2.restaurantText;
+            if (restaurantlabel.Text == "Testing China")
+            {
+                foodlistBox.Items.Add("Zhong Dumplings   price $14");
+                foodlistBox.Items.Add("Taiwaness three cup chicken   price $26");
+                foodlistBox.Items.Add("Salt & Pepper King Prawn with Shell   price $28");
+                foodlistBox.Items.Add("Mongolian Lamb   price $26");
+                foodlistBox.Items.Add("yuxiang eggplants   price $22");
+                foodlistBox.Items.Add("Seafood hot&sour soup   price $15");
+            }
+            else if (restaurantlabel.Text == "Sanya Bar")
+            {
+                foodlistBox.Items.Add("Banana crispy chicken wings   price $13");
+                foodlistBox.Items.Add("Lamb&Bacon Ke-Bao   price $15");
+                foodlistBox.Items.Add("BBQ pork Dim sum   price $12");
+                foodlistBox.Items.Add("Freid cheesecake with coconut flakes   price $16");
+                foodlistBox.Items.Add("Vagan Forage   price $17");
+            }
+            else if (restaurantlabel.Text == "Kimichi")
+            {
+                foodlistBox.Items.Add("Bibibam   price $14.5");
+                foodlistBox.Items.Add("Kimichi Soup   price $14.5");
+                foodlistBox.Items.Add("Don-Katso   price $16.9");
+                foodlistBox.Items.Add("Haemul tang Hot pot   price $33.8");
+                foodlistBox.Items.Add("Chicken Gongjeong   price $15.8");
+            }
+            else if (restaurantlabel.Text == "Arrirang Korean Resturant")
+            {
+                foodlistBox.Items.Add("Korean sizzling BBQ chicken   price $17");
+                foodlistBox.Items.Add("Kimichi stew with pork   price $16.5");
+                foodlistBox.Items.Add("Spicy soup with beef   price $16.5");
+                foodlistBox.Items.Add("Port katsu set   price $17");
+                foodlistBox.Items.Add("Big-bang hangover soup   price $15");
+            }
+            else if (restaurantlabel.Text == "Soi Noodle Bar")
+            {
+                foodlistBox.Items.Add("Spicy Toufu   price $10");
+                foodlistBox.Items.Add("Udon   price $14");
+                foodlistBox.Items.Add("Soft shell Crab Buns   price $15");
+                foodlistBox.Items.Add("Ramen   price $14");
+                foodlistBox.Items.Add("Yakisoba   price $14");
+            }
+            else if (restaurantlabel.Text == "Bento Tei")
+            {
+                foodlistBox.Items.Add("Signature Bento   price $16.5");
+                foodlistBox.Items.Add("Takasuk Chicken Curry Don   price $11.5");
+                foodlistBox.Items.Add("Teriyaki Chicken Don   price $12.8");
+                foodlistBox.Items.Add("Chicken Katsu Udon   price $10.5");
+                foodlistBox.Items.Add("Chicken Karaage Ramen   price $10.5");
+            }
+            
+        }
+
+        private void restaurantlabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addbutton_Click(object sender, EventArgs e)
+        {
+            if (foodlistBox.Text == "Zhong Dumplings   price $14")
+            {
+                price = 14;
+                if (qty1 == 0)
+                {
+                    qty1 = qty1 + 1;
+                    foodchecklistBox.Items.Add("Zhong Dumplings  * " + qty1.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Zhong Dumplings  * " + qty1.ToString());
+                    qty1 = qty1 + 1;
+                    foodchecklistBox.Items.Add("Zhong Dumplings  * " + qty1.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Taiwaness three cup chicken   price $26")
+            {
+                price = 26;
+                if (qty2 == 0)
+                {
+                    qty2 = qty2 + 1;
+                    foodchecklistBox.Items.Add("Taiwaness three cup chicken  * " + qty2.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Taiwaness three cup chicken  * " + qty2.ToString());
+                    qty2 = qty2 + 1;
+                    foodchecklistBox.Items.Add("Taiwaness three cup chicken  * " + qty2.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Salt & Pepper King Prawn with Shell   price $28")
+            {
+                price = 28;
+                if (qty3 == 0)
+                {
+                    qty3 = qty3 + 1;
+                    foodchecklistBox.Items.Add("Salt & Pepper King Prawn with Shell  * " + qty3.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Salt & Pepper King Prawn with Shell  * " + qty3.ToString());
+                    qty3 = qty3 + 1;
+                    foodchecklistBox.Items.Add("Salt & Pepper King Prawn with Shell  * " + qty3.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Mongolian Lamb   price $26")
+            {
+                price = 26;
+                if (qty4 == 0)
+                {
+                    qty4 = qty4 + 1;
+                    foodchecklistBox.Items.Add("Mongolian Lamb  * " + qty4.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Mongolian Lamb  * " + qty4.ToString());
+                    qty4 = qty4 + 1;
+                    foodchecklistBox.Items.Add("Mongolian Lamb  * " + qty4.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "yuxiang eggplants   price $22")
+            {
+                price = 22;
+                if (qty5 == 0)
+                {
+                    qty5 = qty5 + 1;
+                    foodchecklistBox.Items.Add("yuxiang eggplants  * " + qty5.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("yuxiang eggplants  * " + qty5.ToString());
+                    qty5 = qty5 + 1;
+                    foodchecklistBox.Items.Add("yuxiang eggplants  * " + qty5.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Seafood hot&sour soup   price $15")
+            {
+                price = 15;
+                if (qty6 == 0)
+                {
+                    qty6 = qty6 + 1;
+                    foodchecklistBox.Items.Add("Seafood hot&sour soup  * " + qty6.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Seafood hot&sour soup  * " + qty6.ToString());
+                    qty6 = qty6 + 1;
+                    foodchecklistBox.Items.Add("Seafood hot&sour soup  * " + qty6.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Banana crispy chicken wings   price $13")
+            {
+                price = 13;
+                if (qtya1 == 0)
+                {
+                    qtya1 = qtya1 + 1;
+                    foodchecklistBox.Items.Add("Banana crispy chicken wings  * " + qtya1.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Banana crispy chicken wings  * " + qtya1.ToString());
+                    qtya1 = qtya1 + 1;
+                    foodchecklistBox.Items.Add("Banana crispy chicken wings  * " + qtya1.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Lamb&Bacon Ke-Bao   price $15")
+            {
+                price = 15;
+                if (qtya2 == 0)
+                {
+                    qtya2 = qtya2 + 1;
+                    foodchecklistBox.Items.Add("Lamb&Bacon Ke-Bao  * " + qtya2.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Lamb&Bacon Ke-Bao  * " + qtya2.ToString());
+                    qtya2 = qtya2 + 1;
+                    foodchecklistBox.Items.Add("Lamb&Bacon Ke-Bao  * " + qtya2.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "BBQ pork Dim sum   price $12")
+            {
+                price = 12;
+                if (qtya3 == 0)
+                {
+                    qtya3 = qtya3 + 1;
+                    foodchecklistBox.Items.Add("BBQ pork Dim sum  * " + qtya3.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("BBQ pork Dim sum  * " + qtya3.ToString());
+                    qtya3 = qtya3 + 1;
+                    foodchecklistBox.Items.Add("BBQ pork Dim sum  * " + qtya3.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Freid cheesecake with coconut flakes   price $16")
+            {
+                price = 16;
+                if (qtya4 == 0)
+                {
+                    qtya4 = qtya4 + 1;
+                    foodchecklistBox.Items.Add("Freid cheesecake with coconut flakes  * " + qtya4.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Freid cheesecake with coconut flakes  * " + qtya4.ToString());
+                    qtya4 = qtya4 + 1;
+                    foodchecklistBox.Items.Add("Freid cheesecake with coconut flakes  * " + qtya4.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Vagan Forage   price $17")
+            {
+                price = 17;
+                if (qtya5 == 0)
+                {
+                    qtya5 = qtya5 + 1;
+                    foodchecklistBox.Items.Add("Vagan Forage  * " + qtya5.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Vagan Forage  * " + qtya5.ToString());
+                    qtya5 = qtya5 + 1;
+                    foodchecklistBox.Items.Add("Vagan Forage  * " + qtya5.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Bibibam   price $14.5")
+            {
+                price = 14.5F;
+                if (qtyb1 == 0)
+                {
+                    qtyb1 = qtyb1 + 1;
+                    foodchecklistBox.Items.Add("Bibibam  * " + qtyb1.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Bibibam  * " + qtyb1.ToString());
+                    qtyb1 = qtyb1 + 1;
+                    foodchecklistBox.Items.Add("Bibibam  * " + qtyb1.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Kimichi Soup   price $14.5")
+            {
+                price = 14.5F;
+                if (qtyb2 == 0)
+                {
+                    qtyb2 = qtyb2 + 1;
+                    foodchecklistBox.Items.Add("Kimichi Soup  * " + qtyb2.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Kimichi Soup  * " + qtyb2.ToString());
+                    qtyb2 = qtyb2 + 1;
+                    foodchecklistBox.Items.Add("Kimichi Soup  * " + qtyb2.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Don-Katso   price $16.9")
+            {
+                price = 16.9F;
+                if (qtyb3 == 0)
+                {
+                    qtyb3 = qtyb3 + 1;
+                    foodchecklistBox.Items.Add("Don-Katso  * " + qtyb3.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Don-Katso  * " + qtyb3.ToString());
+                    qtyb3 = qtyb3 + 1;
+                    foodchecklistBox.Items.Add("Don-Katso  * " + qtyb3.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Haemul tang Hot pot   price $33.8")
+            {
+                price = 33.8F;
+                if (qtyb4 == 0)
+                {
+                    qtyb4 = qtyb4 + 1;
+                    foodchecklistBox.Items.Add("Haemul tang Hot pot  * " + qtyb4.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Haemul tang Hot pot  * " + qtyb4.ToString());
+                    qtyb4 = qtyb4 + 1;
+                    foodchecklistBox.Items.Add("Haemul tang Hot pot  * " + qtyb4.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Chicken Gongjeong   price $15.8")
+            {
+                price = 15.8F;
+                if (qtyb5 == 0)
+                {
+                    qtyb5 = qtyb5 + 1;
+                    foodchecklistBox.Items.Add("Chicken Gongjeong  * " + qtyb5.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Chicken Gongjeong  * " + qtyb5.ToString());
+                    qtyb5 = qtyb5 + 1;
+                    foodchecklistBox.Items.Add("Chicken Gongjeong  * " + qtyb5.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Korean sizzling BBQ chicken   price $17")
+            {
+                price = 17;
+                if (qtyc1 == 0)
+                {
+                    qtyc1 = qtyc1 + 1;
+                    foodchecklistBox.Items.Add("Korean sizzling BBQ chicken  * " + qtyc1.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Korean sizzling BBQ chicken  * " + qtyc1.ToString());
+                    qtyc1 = qtyc1 + 1;
+                    foodchecklistBox.Items.Add("Korean sizzling BBQ chicken  * " + qtyc1.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Kimichi stew with pork   price $16.5")
+            {
+                price = 16.5F;
+                if (qtyc2 == 0)
+                {
+                    qtyc2 = qtyc2 + 1;
+                    foodchecklistBox.Items.Add("Kimichi stew with pork  * " + qtyc2.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Kimichi stew with pork  * " + qtyc2.ToString());
+                    qtyc2 = qtyc2 + 1;
+                    foodchecklistBox.Items.Add("Kimichi stew with pork  * " + qtyc2.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Spicy soup with beef   price $16.5")
+            {
+                price = 16.5F;
+                if (qtyc3 == 0)
+                {
+                    qtyc3 = qtyc3 + 1;
+                    foodchecklistBox.Items.Add("Spicy soup with beef  * " + qtyc3.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Spicy soup with beef  * " + qtyc3.ToString());
+                    qtyc3 = qtyc3 + 1;
+                    foodchecklistBox.Items.Add("Spicy soup with beef  * " + qtyc3.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Port katsu set   price $17")
+            {
+                price = 17;
+                if (qtyc4 == 0)
+                {
+                    qtyc4 = qtyc4 + 1;
+                    foodchecklistBox.Items.Add("Port katsu set  * " + qtyc4.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Port katsu set  * " + qtyc4.ToString());
+                    qtyc4 = qtyc4 + 1;
+                    foodchecklistBox.Items.Add("Port katsu set  * " + qtyc4.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Big-bang hangover soup   price $15")
+            {
+                price = 15;
+                if (qtyc5 == 0)
+                {
+                    qtyc5 = qtyc5 + 1;
+                    foodchecklistBox.Items.Add("Big-bang hangover soup  * " + qtyc5.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Big-bang hangover soup  * " + qtyc5.ToString());
+                    qtyc5 = qtyc5 + 1;
+                    foodchecklistBox.Items.Add("Big-bang hangover soup  * " + qtyc5.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Spicy Toufu   price $10")
+            {
+                price = 10;
+                if (qtyd1 == 0)
+                {
+                    qtyd1 = qtyd1 + 1;
+                    foodchecklistBox.Items.Add("Spicy Toufu  * " + qtyd1.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Spicy Toufu  * " + qtyd1.ToString());
+                    qtyd1 = qtyd1 + 1;
+                    foodchecklistBox.Items.Add("Spicy Toufu  * " + qtyd1.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Udon   price $14")
+            {
+                price = 14;
+                if (qtyd2 == 0)
+                {
+                    qtyd2 = qtyd2 + 1;
+                    foodchecklistBox.Items.Add("Udon  * " + qtyd2.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Udon  * " + qtyd2.ToString());
+                    qtyd2 = qtyd2 + 1;
+                    foodchecklistBox.Items.Add("Udon  * " + qtyd2.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Soft shell Crab Buns   price $15")
+            {
+                price = 15;
+                if (qtyd3 == 0)
+                {
+                    qtyd3 = qtyd3 + 1;
+                    foodchecklistBox.Items.Add("Soft shell Crab Buns  * " + qtyd3.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Soft shell Crab Buns  * " + qtyd3.ToString());
+                    qtyd3 = qtyd3 + 1;
+                    foodchecklistBox.Items.Add("Soft shell Crab Buns  * " + qtyd3.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Ramen   price $14")
+            {
+                price = 14;
+                if (qtyd4 == 0)
+                {
+                    qtyd4 = qtyd4 + 1;
+                    foodchecklistBox.Items.Add("Ramen  * " + qtyd4.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Ramen  * " + qtyd4.ToString());
+                    qtyd4 = qtyd4 + 1;
+                    foodchecklistBox.Items.Add("Ramen  * " + qtyd4.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Yakisoba   price $14")
+            {
+                price = 14;
+                if (qtyd5 == 0)
+                {
+                    qtyd5 = qtyd5 + 1;
+                    foodchecklistBox.Items.Add("Yakisoba  * " + qtyd5.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Yakisoba  * " + qtyd5.ToString());
+                    qtyd5 = qtyd5 + 1;
+                    foodchecklistBox.Items.Add("Yakisoba  * " + qtyd5.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Signature Bento   price $16.5")
+            {
+                price = 16.5F;
+                if (qtye1 == 0)
+                {
+                    qtye1 = qtye1 + 1;
+                    foodchecklistBox.Items.Add("Signature Bento  * " + qtye1.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Signature Bento  * " + qtye1.ToString());
+                    qtye1 = qtye1 + 1;
+                    foodchecklistBox.Items.Add("Signature Bento  * " + qtye1.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Takasuk Chicken Curry Don   price $11.5")
+            {
+                price = 11.5F;
+                if (qtye2 == 0)
+                {
+                    qtye2 = qtye2 + 1;
+                    foodchecklistBox.Items.Add("Takasuk Chicken Curry Don  * " + qtye2.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Takasuk Chicken Curry Don  * " + qtye2.ToString());
+                    qtye2 = qtye2 + 1;
+                    foodchecklistBox.Items.Add("Takasuk Chicken Curry Don  * " + qtye2.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Teriyaki Chicken Don   price $12.8")
+            {
+                price = 12.8F;
+                if (qtye3 == 0)
+                {
+                    qtye3 = qtye3 + 1;
+                    foodchecklistBox.Items.Add("Teriyaki Chicken Don  * " + qtye3.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Teriyaki Chicken Don  * " + qtye3.ToString());
+                    qtye3 = qtye3 + 1;
+                    foodchecklistBox.Items.Add("Teriyaki Chicken Don  * " + qtye3.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Chicken Katsu Udon   price $10.5")
+            {
+                price = 10.5F;
+                if (qtye4 == 0)
+                {
+                    qtye4 = qtye4 + 1;
+                    foodchecklistBox.Items.Add("Chicken Katsu Udon  * " + qtye4.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Chicken Katsu Udon  * " + qtye4.ToString());
+                    qtye4 = qtye4 + 1;
+                    foodchecklistBox.Items.Add("Chicken Katsu Udon  * " + qtye4.ToString());
+                }
+            }
+            else if (foodlistBox.Text == "Chicken Karaage Ramen   price $10.5")
+            {
+                price = 10.5F;
+                if (qtye5 == 0)
+                {
+                    qtye5 = qtye5 + 1;
+                    foodchecklistBox.Items.Add("Chicken Karaage Ramen  * " + qtye5.ToString());
+                }
+                else
+                {
+                    foodchecklistBox.Items.Remove("Chicken Karaage Ramen  * " + qtye5.ToString());
+                    qtye5 = qtye5 + 1;
+                    foodchecklistBox.Items.Add("Chicken Karaage Ramen  * " + qtye5.ToString());
+                }
+            }
+            totalprice = totalprice + price;
+            totalcosttextBox.Text = totalprice.ToString("c");
+        }
+
+        private void deletebutton_Click(object sender, EventArgs e)
+        {
+            if (foodchecklistBox.Text == "Zhong Dumplings  * " + qty1.ToString())
+            {
+                price = 14;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qty1;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qty1 = 0;
+            }
+            else if (foodchecklistBox.Text == "Taiwaness three cup chicken  * " + qty2.ToString())
+            {
+                price = 26;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qty2;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qty2 = 0;
+            }
+            else if (foodchecklistBox.Text == "Salt & Pepper King Prawn with Shell  * " + qty3.ToString())
+            {
+                price = 28;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qty3;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qty3 = 0;
+            }
+            else if (foodchecklistBox.Text == "Mongolian Lamb  * " + qty4.ToString())
+            {
+                price = 26;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qty4;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qty4 = 0;
+            }
+            else if (foodchecklistBox.Text == "yuxiang eggplants  * " + qty5.ToString())
+            {
+                price = 22;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qty5;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qty5 = 0;
+            }
+            else if (foodchecklistBox.Text == "Seafood hot&sour soup  * " + qty6.ToString())
+            {
+                price = 15;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qty6;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qty6 = 0;
+            }
+            else if (foodchecklistBox.Text == "Banana crispy chicken wings  * " + qtya1.ToString())
+            {
+                price = 13;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtya1;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtya1 = 0;
+            }
+            else if (foodchecklistBox.Text == "Lamb&Bacon Ke-Bao  * " + qtya2.ToString())
+            {
+                price = 15;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtya2;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtya2 = 0;
+            }
+            else if (foodchecklistBox.Text == "BBQ pork Dim sum  * " + qtya3.ToString())
+            {
+                price = 12;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtya3;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtya3 = 0;
+            }
+            else if (foodchecklistBox.Text == "Freid cheesecake with coconut flakes  * " + qtya4.ToString())
+            {
+                price = 16;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtya4;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtya4 = 0;
+            }
+            else if (foodchecklistBox.Text == "Vagan Forage  * " + qtya5.ToString())
+            {
+                price = 17;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtya5;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtya5 = 0;
+            }
+            else if (foodchecklistBox.Text == "Bibibam  * " + qtyb1.ToString())
+            {
+                price = 14.5F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyb1;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyb1 = 0;
+            }
+            else if (foodchecklistBox.Text == "Kimichi Soup  * " + qtyb2.ToString())
+            {
+                price = 14.5F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyb2;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyb2 = 0;
+            }
+            else if (foodchecklistBox.Text == "Don-Katso  * " + qtyb3.ToString())
+            {
+                price = 16.9F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyb3;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyb3 = 0;
+            }
+            else if (foodchecklistBox.Text == "Haemul tang Hot pot  * " + qtyb4.ToString())
+            {
+                price = 33.8F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyb4;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyb4 = 0;
+            }
+            else if (foodchecklistBox.Text == "Chicken Gongjeong  * " + qtyb5.ToString())
+            {
+                price = 15.8F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyb5;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyb5 = 0;
+            }
+            else if (foodchecklistBox.Text == "Korean sizzling BBQ chicken  * " + qtyc1.ToString())
+            {
+                price = 17;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyc1;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyc1 = 0;
+            }
+            else if (foodchecklistBox.Text == "Kimichi stew with pork  * " + qtyc2.ToString())
+            {
+                price = 16.5F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyc2;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyc2 = 0;
+            }
+            else if (foodchecklistBox.Text == "Spicy soup with beef  * " + qtyc3.ToString())
+            {
+                price = 16.5F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyc3;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyc3 = 0;
+            }
+            else if (foodchecklistBox.Text == "Port katsu set  * " + qtyc4.ToString())
+            {
+                price = 17;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyc4;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyc4 = 0;
+            }
+            else if (foodchecklistBox.Text == "Big-bang hangover soup  * " + qtyc5.ToString())
+            {
+                price = 15;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyc5;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyc5 = 0;
+            }
+            else if (foodchecklistBox.Text == "Spicy Toufu  * " + qtyd1.ToString())
+            {
+                price = 10;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyd1;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyd1 = 0;
+            }
+            else if (foodchecklistBox.Text == "Udon  * " + qtyd2.ToString())
+            {
+                price = 14;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyd2;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyd2 = 0;
+            }
+            else if (foodchecklistBox.Text == "Soft shell Crab Buns  * " + qtyd3.ToString())
+            {
+                price = 15;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyd3;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyd3 = 0;
+            }
+            else if (foodchecklistBox.Text == "Ramen  * " + qtyd4.ToString())
+            {
+                price = 14;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyd4;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyd4 = 0;
+            }
+            else if (foodchecklistBox.Text == "Yakisoba  * " + qtyd5.ToString())
+            {
+                price = 14;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtyd5;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtyd5 = 0;
+            }
+            else if (foodchecklistBox.Text == "Signature Bento  * " + qtye1.ToString())
+            {
+                price = 16.5F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtye1;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtye1 = 0;
+            }
+            else if (foodchecklistBox.Text == "Takasuk Chicken Curry Don  * " + qtye2.ToString())
+            {
+                price = 11.5F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtye2;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtye2 = 0;
+            }
+            else if (foodchecklistBox.Text == "Teriyaki Chicken Don  * " + qtye3.ToString())
+            {
+                price = 12.8F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtye3;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtye3 = 0;
+            }
+            else if (foodchecklistBox.Text == "Chicken Katsu Udon  * " + qtye4.ToString())
+            {
+                price = 10.5F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtye4;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtye4 = 0;
+            }
+            else if (foodchecklistBox.Text == "Chicken Karaage Ramen  * " + qtye5.ToString())
+            {
+                price = 10.5F;
+                foodchecklistBox.Items.RemoveAt(foodchecklistBox.SelectedIndex);
+                totalprice = totalprice - price * qtye5;
+                totalcosttextBox.Text = totalprice.ToString("c");
+                qtye5 = 0;
+            }
+        }
+
+        private void Backbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f2 = new Form2();
+            f2.Show();
+        }
+
+        private void Paybutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f6 = new Form6();
+            f6.Show();
+        }
+
+        private void foodlistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (foodlistBox.Text == "yuxiang eggplants   price $22")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Zhong Dumplings   price $14")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Taiwaness three cup chicken   price $26")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Salt & Pepper King Prawn with Shell   price $28")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Mongolian Lamb   price $26")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Seafood hot&sour soup   price $15")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Banana crispy chicken wings   price $13")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Lamb&Bacon Ke-Bao   price $15")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "BBQ pork Dim sum   price $12")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Freid cheesecake with coconut flakes   price $16")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+            else if (foodlistBox.Text == "Vagan Forage   price $17")
+            {
+                foodpictureBox.Load(foodlistBox.SelectedItem.ToString() + ".jpg");
+            }
+        }
+    }
+}
