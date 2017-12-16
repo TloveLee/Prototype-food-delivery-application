@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Smart_FoodDelivery_App
+{
+    public partial class Form6 : Form
+    {
+        public Form6()
+        {
+            InitializeComponent();
+        }
+
+        private void Submitbutton_Click(object sender, EventArgs e)
+        {
+            Informationlabel.Visible = true;
+            Informationlabel.Text = "Thank you, " + contactnametextBox.Text + ". Your food will be delivery " + Form1.Timetext;
+        }
+
+        private void previosubutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f3 = new Form3();
+            f3.Show();
+        }
+    }
+}
