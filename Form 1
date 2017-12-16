@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Smart_FoodDelivery_App
+{
+    
+    public partial class Form1 : Form
+    {
+        public static int value;
+        public static string Timetext;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+  private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+  private void label1_Click(object sender, EventArgs e)
+  {
+
+  }
+
+  private void button2_Click(object sender, EventArgs e)
+  {
+      locationlabel.Text = "Unit 9/81 Cooks street, Bruce";
+  }
+
+  private void Form1_Load(object sender, EventArgs e)
+  {
+
+  }
+
+  private void Page1nextbutton_Click(object sender, EventArgs e)
+  {
+      if (locationlabel.Text == "")
+      {
+          MessageBox.Show("Please enter your location.");
+      }
+      else if(TimecomboBox.Text == "")
+      {
+          MessageBox.Show("Please select your preference time.");
+      }
+      else if (PricecomboBox.Text == "")
+      {
+          MessageBox.Show("Please select your preference average price per person.");
+      }
+      else if (TypecomboBox.Text == "")
+      {
+          MessageBox.Show("Please select your preference type of food.");
+      }
+      else{
+      if (TimecomboBox.Text == "Less than 5 minutes" && PricecomboBox.Text == "Between 10 to 30 dollars" && TypecomboBox.Text == "Chinese Food")
+      {
+          value = 1;
+      }
+      else if (TimecomboBox.Text == "Between 10 to 20 minutes" && PricecomboBox.Text == "Between 30 to 50 dollars" && TypecomboBox.Text == "Korean Food")
+      {
+          value = 2;
+      }
+      else if (TimecomboBox.Text == "Above 20 minutes" && PricecomboBox.Text == "Between 10 to 30 dollars" && TypecomboBox.Text == "Korean Food")
+      {
+          value = 3;
+      }
+      else if (TimecomboBox.Text == "Above 20 minutes" && PricecomboBox.Text == "Between 10 to 30 dollars" && TypecomboBox.Text == "Japanese Food")
+      {
+          value = 4;
+      }
+      else if (TimecomboBox.Text == "Between 5 to 10 minutes" && PricecomboBox.Text == "Between 30 to 50 dollars" && TypecomboBox.Text == "Japanese Food")
+      {
+          value = 5;
+      }
+      else
+      {
+          MessageBox.Show("Sorry, there is no restaurants to meet all conditions, please select again.");
+          TimecomboBox.Text = "";
+          PricecomboBox.Text = "";
+          TypecomboBox.Text = "";
+      }
+    }
+      if (value >= 1)
+      {
+          Timetext = TimecomboBox.Text;
+          this.Hide();
+          Form2 f2 = new Form2();
+          f2.Show();
+      }
+ }
+
+  private void Registerbutton_Click(object sender, EventArgs e)
+  {
+      new Form4().Show();
+      this.Hide();
+  }
+
+  private void loginbutton_Click(object sender, EventArgs e)
+  {
+      new Form5().Show();
+      this.Hide();
+  }
+   }
+}
