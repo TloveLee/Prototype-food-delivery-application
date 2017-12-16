@@ -1,0 +1,107 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Smart_FoodDelivery_App
+{
+    public partial class Form2 : Form
+    {
+        public static string restaurantText = "";
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void restaurantlistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (restaurantlistBox.Text == "Testing China")
+            {
+                RestaurantpictureBox.Load(restaurantlistBox.SelectedItem.ToString() + ".jpg");
+                informationlabel.Text = "108 Bunda St, Canberra 2601 , Australia";
+                Timelabel.Text = "open time  Tue-Sun 11:30-14:00 Mon rest";
+            }
+            else if (restaurantlistBox.Text == "Sanya Bar")
+            {
+                RestaurantpictureBox.Load(restaurantlistBox.SelectedItem.ToString() + ".jpg");
+                informationlabel.Text = "3A/5 Lonsdale St, Braddon ACT 2612";
+                Timelabel.Text = "Wed-Sat 12:00-0:00  Sun-Tue rest";
+            }
+            else if (restaurantlistBox.Text == "Kimichi")
+            {
+                RestaurantpictureBox.Load(restaurantlistBox.SelectedItem.ToString() + ".jpg");
+                informationlabel.Text = "68-70 Bunda St, Canberra ACT 2601";
+                Timelabel.Text = "every day 11:30-15:00 17:00-22:00";
+            }
+            else if (restaurantlistBox.Text == "Arrirang Korean Resturant")
+            {
+                RestaurantpictureBox.Load(restaurantlistBox.SelectedItem.ToString() + ".jpg");
+                informationlabel.Text = "43 Hibberson St, Gungahlin ACT 2912";
+                Timelabel.Text = "Tue-Sat 11:30-15:00 17:00-22:00 Mon rest";
+            }
+            else if (restaurantlistBox.Text == "Soi Noodle Bar")
+            {
+                RestaurantpictureBox.Load(restaurantlistBox.SelectedItem.ToString() + ".jpg");
+                informationlabel.Text = " Canberra Centre Shopping Centre, Shop EG08, Bunda Street, Canberra ACT 2601";
+                Timelabel.Text = "every day 11:00-22:00";
+            }
+            else if (restaurantlistBox.Text == "Bento Tei")
+            {
+                RestaurantpictureBox.Load(restaurantlistBox.SelectedItem.ToString() + ".jpg");
+                informationlabel.Text = " 33 Hibberson St Canberra Australia Capital Territory 2912";
+                Timelabel.Text = "every day 11:00-21:00";
+            }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            if (Form1.value == 1)
+            {
+                restaurantlistBox.Items.Add("Testing China");
+                restaurantlistBox.Items.Add("Sanya Bar");
+            }
+            else if (Form1.value == 2)
+            {
+                restaurantlistBox.Items.Add("Kimichi");
+            }
+            else if (Form1.value == 3)
+            {
+                restaurantlistBox.Items.Add("Arrirang Korean Resturant");
+            }
+            else if (Form1.value == 4)
+            {
+                restaurantlistBox.Items.Add("Soi Noodle Bar");
+            }
+            else if (Form1.value == 5)
+            {
+                restaurantlistBox.Items.Add("Bento Tei");
+            }
+     
+        }
+
+        private void nextbutton_Click(object sender, EventArgs e)
+        {
+            restaurantText = restaurantlistBox.Text;
+            this.Hide();
+            Form3 f3 = new Form3();
+            f3.Show();
+        }
+
+        private void RestaurantpictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Previousbutton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f1 = new Form1();
+            f1.Show();
+        }
+    }
+}
